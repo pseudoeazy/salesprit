@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS starts from here */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  line-height: 1.65;
+  @apply text-gray-700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-900;
+  @apply font-semibold;
+}
+
+h1 {
+  @apply text-48px;
+}
+
+h2 {
+  @apply text-42px;
+}
+
+h3 {
+  @apply text-36px;
+}
+
+h4 {
+  @apply text-30px;
+}
+
+h5 {
+  @apply text-24px;
+}
+
+h6 {
+  @apply text-18px;
+}
+
+input[type="search"],
+input,
+button {
+  -webkit-appearance: none;
+}
+.nav:hover {
+  background-color: #003048;
+}
+
+.Toastify__toast--success {
+  background-color: #12991f;
+}
+
+/* ScrollBar Height Calc */
+.cart-scrollbar {
+  max-height: calc(100vh - 174.08px);
+  -webkit-overflow-scrolling: touch;
+}
