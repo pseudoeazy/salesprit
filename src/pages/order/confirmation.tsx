@@ -2,8 +2,10 @@ import Head from "next/head";
 import Layout from "containers/layout";
 import NavBar from "containers/navbar";
 import Button from "components/button";
+import { useRouter } from "next/router";
 
 export default function OrderConfirmation() {
+  const router = useRouter();
   const containerStyle = {
     backgroundImage: `url(/images/thank-you.png)`,
     backgroundSize: "cover",
@@ -25,15 +27,17 @@ export default function OrderConfirmation() {
         <NavBar />
 
         <div className="flex-1  min-h-screen pt-15">
-          <div
-            className="relative   mx-auto "
-            style={containerStyle}
-          >
+          <div className="relative   mx-auto " style={containerStyle}>
             <div className="absolute left-[8rem] top-[14rem] w-[18.6rem] h-[14.6rem] capitalize text-center">
               <div className="flex flex-col items-center space-y-1 text-center ">
-              <span className="font-bold">you order is confirmed</span>
-              <span>Thanks for your order </span>
-              <Button size="small" className="w-[7.8rem] rounded-xl mt-5 bg-secondary text-white">Done</Button>
+                <span className="font-bold">you order is confirmed</span>
+                <span>Thanks for your order </span>
+                <Button
+                  className="w-[8rem] rounded-xl p-1 mt-5 bg-secondary text-white"
+                  onClick={() => router.push("/")}
+                >
+                  Done
+                </Button>
               </div>
             </div>
           </div>
