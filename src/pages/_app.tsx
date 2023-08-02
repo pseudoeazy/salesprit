@@ -1,4 +1,8 @@
 import "assets/styles/globals.css";
+import "assets/styles/nprogress.css"; // Import NProgress stylesheet here
+import { useEffect } from "react";
+import Router from "next/router";
+import NProgress from "nprogress";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Outfit } from "next/font/google";
@@ -22,7 +26,19 @@ export const inter = Outfit({
   display: "swap",
 });
 
+// Add NProgress loading indicator for page transitions
+NProgress.configure({ showSpinner: false });
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
+
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    // Cleanup NProgress events on unmounting the component
+    Router.events.off("routeChangeStart", () => NProgress.start());
+    Router.events.off("routeChangeComplete", () => NProgress.done());
+    Router.events.off("routeChangeError", () => NProgress.done());
+  }, []);
   return (
     <ChakraProvider>
       <SearchProvider>
