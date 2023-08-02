@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
 import Call from "assets/icons/call";
 import Button from "components/button";
 import NoItem from "components/cart/no-item";
@@ -8,7 +10,19 @@ import CartItem from "components/cart/cart-items";
 import Item from "types/item";
 
 const RightSidebar = () => {
-  const { items, calculatePrice } = useCart();
+  const { items, calculatePrice, clearCart } = useCart();
+  const [isSubmit, setIsSubmit] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = async () => {
+    setIsSubmit(true);
+    setTimeout(() => {
+      setTimeout(() => {
+        clearCart();
+      }, 100);
+      router.push("/order/confirmation");
+    }, 2000);
+  };
 
   return (
     <aside className="w-[26.88rem]">
@@ -68,7 +82,14 @@ const RightSidebar = () => {
                 </span>
               </div>
 
-              <Button className="big my-12">Place Order</Button>
+              <Button
+                disabled={isSubmit}
+                loading={isSubmit}
+                className="big my-12"
+                onClick={handleSubmit}
+              >
+                Place Order
+              </Button>
             </div>
           </div>
         </section>

@@ -12,10 +12,12 @@ const NavBar = () => {
         className={`fixed w-[14.9375rem]  min-h-screen border-r border-r-mygray `}
       >
         <div className="h-[7.3rem] flex items-center justify-center ">
-          <h1 className="font-bold leading-normal">
-            <span className="text-secondary">Sale</span>
-            <span>sprit</span>
-          </h1>
+          <Link href="/">
+            <h1 className="font-bold leading-normal">
+              <span className="text-secondary">Sale</span>
+              <span>sprit</span>
+            </h1>
+          </Link>
         </div>
         <nav
           className={`h-screen px-4 pt-8 border-t border-t-mygray overflow-x-hidden overflow-y-scroll ${scroll.scrollbar}`}
