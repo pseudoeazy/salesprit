@@ -4,15 +4,16 @@ import NavBar from "containers/navbar";
 import Button from "components/button";
 import { useRouter } from "next/router";
 
+const containerStyle = {
+  backgroundImage: `url(/images/thank-you.png)`,
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  width: "42rem",
+  height: "32rem",
+};
 export default function OrderConfirmation() {
   const router = useRouter();
-  const containerStyle = {
-    backgroundImage: `url(/images/thank-you.png)`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    width: "42rem",
-    height: "32rem",
-  };
+ 
   return (
     <Layout>
       <Head>

@@ -5,14 +5,8 @@ import MainContent from "containers/main-content";
 import RightSidebar from "containers/right-sidebar";
 
 export default function Home() {
-  //content w-[43.3825rem]
-  //RightSidebar w-[26.88rem]
-  //nav w-[14.9375rem]
-  //container  w-max-[85.375rem]
-  // nav left-[58.7625rem]
-
   return (
-    <Layout>
+    <Layout hasSidebar>
       <Head>
         <meta
           name="viewport"
@@ -20,11 +14,10 @@ export default function Home() {
         />
         <title>Salesprit | Food POS theme for all devices</title>
       </Head>
-      <div className="relative flex mx-auto w-[85.375rem] overflow-x-hidden">
-        <NavBar />
-        <MainContent />
-        <RightSidebar />
-      </div>
+
+      <NavBar />
+      <MainContent />
+      <RightSidebar />
     </Layout>
   );
 }

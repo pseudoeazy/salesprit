@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 import Call from "assets/icons/call";
 import Button from "components/button";
 import NoItem from "components/cart/no-item";
@@ -19,13 +20,13 @@ const RightSidebar = () => {
     setTimeout(() => {
       setTimeout(() => {
         clearCart();
-      }, 100);
+      }, 500);
       router.push("/order/confirmation");
     }, 2000);
   };
 
   return (
-    <aside className="w-[26.88rem]">
+    <aside className="w-[26.88rem] hidden lg:block">
       <div className="fixed w-[26.88rem] min-h-screen  border-l border-l-mygray ">
         <section className="px-8">
           <div className="h-[7.88rem] relative left-[-1rem] z-10 flex justify-between items-center border-b border-b-mygray">
@@ -33,7 +34,7 @@ const RightSidebar = () => {
               <div className="">
                 <img
                   className="inline-block w-16 h-16 rounded-full"
-                  src="/images/cashier.jpg"
+                  src="/images/cashier.png"
                   alt="cashier"
                 />
               </div>
@@ -43,7 +44,16 @@ const RightSidebar = () => {
               </div>
             </div>
             <div>
-              <Call />
+              <motion.span
+                whileHover={{ scale: 1.1, rotate: 30 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block"
+              >
+                <a href="tel:123456789">
+                  <Call />
+                </a>
+              </motion.span>
             </div>
           </div>
         </section>
@@ -58,9 +68,12 @@ const RightSidebar = () => {
                 </div>
 
                 <div className="space-y-4 px-4">
-                  {items.map((item: Item) => (
-                    <CartItem item={item} key={item.id} />
-                  ))}
+                  {items
+                    .slice(0)
+                    .reverse()
+                    .map((item: Item) => (
+                      <CartItem item={item} key={item.id} />
+                    ))}
                 </div>
               </>
             ) : (

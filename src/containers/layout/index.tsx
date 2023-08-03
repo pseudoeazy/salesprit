@@ -2,9 +2,10 @@ import SiteLayout from "./site-layout";
 
 interface Props {
   children: React.ReactNode;
+  hasSidebar?: boolean;
 }
 
-const Layout: React.FC<Props> = ({ children }) => (
+const Layout: React.FC<Props> = ({ children, hasSidebar }) => (
   <SiteLayout>
     <main
       className="relative min-h-screen flex-grow"
@@ -14,10 +15,20 @@ const Layout: React.FC<Props> = ({ children }) => (
       }}
     >
       <div className="relative flex flex-col w-full h-full min-h-screen flex-grow">
-        {children}
+        {hasSidebar ? (
+          <div className="relative flex mx-auto md:w-[85.375rem] overflow-x-hidden">
+            {children}
+          </div>
+        ) : (
+          children
+        )}
       </div>
     </main>
   </SiteLayout>
 );
+
+Layout.defaultProps = {
+  hasSidebar: false,
+};
 
 export default Layout;

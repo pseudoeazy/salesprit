@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Counter from "./counter";
 import CURRENCY from "constants/currency";
 import { useCart } from "contexts/cart/cart-provider";
@@ -7,9 +8,6 @@ type CartItemProps = {
   item: Item;
 };
 
-// ----------
-// Cart Item
-// ----------
 const styles = {
   CartItemBase:
     " relative w-full h-auto flex justify-around items-center bg-white p-4 border border-mygray rounded-xl  ",
@@ -27,11 +25,16 @@ const styles = {
   CartItemTotalPrice: "font-semibold text-16px text-gray-900 flex-shrink-0",
 };
 
+const itemVariant = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
 const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const { addItem, removeItem } = useCart();
 
   return (
-    <div className={styles.CartItemBase}>
+    <motion.div className={styles.CartItemBase}>
       <div className={styles.CartItemImage}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`/images/${item.product.imgUrl}`} alt={item.product.name} />
@@ -51,10 +54,9 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           value={item.quantity}
           onIncrement={() => addItem(item)}
           onDecrement={() => removeItem(item)}
-         
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

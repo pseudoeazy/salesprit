@@ -1,35 +1,47 @@
 //@ts-nocheck
-import { Html5QrcodeScanner,Html5QrcodeScanType } from "html5-qrcode";
-import { useEffect,useState } from "react";
-import ResultContainerPlugin from "./result-container-plugin";
 
+import { useEffect, useState } from "react";
+import { Html5QrcodeScanner, Html5QrcodeScanType } from "html5-qrcode";
+import BackArrow from "assets/icons/back-arrow";
+
+const containerStyle = {
+  backgroundImage: `url(/images/qrcode.jpg)`,
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+};
 
 export default function QrCodeScanner() {
   const [decodedResults, setDecodedResults] = useState([]);
 
-  const onNewScanResult = (decodedText, decodedResult) => {
-    console.log("App [result]", decodedResult);
-    setDecodedResults((prev) => [...prev, decodedResult]);
-  };
-
   useEffect(() => {
     // when component mounts
-    
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-      "reader", 
-      { 
-          fps: 10,
-          qrbox: {width: 250, height: 250},
-          experimentalFeatures: {
-              useBarCodeDetectorIfSupported: true
-          },
-          rememberLastUsedCamera: true,
-          supportedScanTypes: [
-              Html5QrcodeScanType.SCAN_TYPE_CAMERA
-          ],
-          aspectRatio: 1.7777778
-      });
-      html5QrcodeScanner.render(onNewScanResult);
+    const html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+      fps: 4, //10
+      qrbox: 448,
+      experimentalFeatures: {
+        useBarCodeDetectorIfSupported: true,
+      },
+      rememberLastUsedCamera: true,
+      supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
+      aspectRatio: 1.7777778,
+    });
+
+    const onNewScanResult = (decodedText, decodedResult) => {
+      if (decodedText) {
+        // html5QrcodeScanner.clear();
+        const stopButton = document.getElementById(
+          "html5-qrcode-button-camera-stop"
+        );
+
+        if (stopButton) {
+          stopButton.click();
+        }
+      }
+
+      setDecodedResults((prev) => [...prev, decodedResult]);
+    };
+
+    html5QrcodeScanner.render(onNewScanResult);
 
     // cleanup function when component will unmount
     return () => {
@@ -38,8 +50,24 @@ export default function QrCodeScanner() {
       });
     };
   }, []);
-  return <div className="w-1/2 h-1/2 border border-black flex items-center justify-center">
-    <div id="reader" />
-    <ResultContainerPlugin results={decodedResults} />
-  </div>;
+
+  return (
+    <div
+      className="relative h-screen w-screen flex items-center justify-center "
+      style={containerStyle}
+    >
+      <span role="button" className="absolute left-20 top-20">
+        <BackArrow />
+      </span>
+      <div className="relative w-[28rem] h-[28rem] border border-mygray border-t-2 border-t-secondary  ">
+        <div id="reader" className="w-full h-full text-mygray font-bold" />
+        {!!decodedResults.length && (
+          <div className="absolute bottom-0 left-0  w-full min-h-20 p-1 bg-white text-black border-y-2 border-y-secondary-400">
+            <span className="text-secondary">Data: </span>{" "}
+            {decodedResults[decodedResults.length - 1]?.decodedText}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

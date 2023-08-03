@@ -7,7 +7,7 @@ const NavBar = () => {
   const router = useRouter();
   const isActive = (path: string) => router.pathname === path;
   return (
-    <div className="w-[14.9375rem]">
+    <div className="w-[14.9375rem] hidden md:block">
       <div
         className={`fixed w-[14.9375rem]  min-h-screen border-r border-r-mygray `}
       >
