@@ -4,6 +4,12 @@ import { Product } from "types/product";
 import CURRENCY from "constants/currency";
 import { useCart } from "contexts/cart/cart-provider";
 
+//max-w-xl 
+const styles = {
+  container: `bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700`,
+  productName: `mb-2 font-bold tracking-tight text-gray-900 dark:text-white`,
+};
+
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
   const { addItem } = useCart();
 
@@ -11,7 +17,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     <motion.div
       whileHover={{ scale: 1.1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+      className={styles.container}
     >
       <img
         className="w-full h-48 rounded-lg cursor-pointer"
@@ -24,7 +30,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         <div
           onClick={() => addItem({ product, id: product.id })}
           role="button"
-          className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white"
+          className={styles.productName}
         >
           {product?.name}
         </div>

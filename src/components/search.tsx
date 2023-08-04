@@ -1,10 +1,11 @@
 import React, { FormEvent } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import SearchIcon from "assets/icons/search-icon";
 import Barcode from "assets/icons/barcode";
 import { useSearch } from "contexts/search/use-search";
 import { useDisclosure } from "@chakra-ui/react";
-import SlideEx from "components/modals/slider";
+const QrSlider = dynamic(() => import("components/modals/qr-slider"));
 
 type SearchProps = { className?: string; id?: string };
 
@@ -42,7 +43,7 @@ const Search: React.FC<SearchProps> = ({ className, ...props }) => {
   const classNames = styles.searchBase + " " + className;
   return (
     <>
-      <SlideEx isOpen={isOpen} onClose={onToggle} />
+      <QrSlider isOpen={isOpen} onClose={onToggle} />
 
       <form noValidate role="search" className={classNames} onSubmit={onSubmit}>
         <span className={styles.searchIconWrapper}>

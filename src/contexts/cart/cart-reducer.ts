@@ -1,7 +1,6 @@
 import Item from "types/item";
 
 export const cartItemsTotalPrice = (items: Item[], coupon = null) => {
-  console.log({ cartItemsTotalPrice: items });
   const total = items.reduce((price, item) => {
     return price + item.product.price * item.quantity;
   }, 0);
@@ -15,7 +14,7 @@ export const cartItemsTotalPrice = (items: Item[], coupon = null) => {
 
 // cartItems, cartItemToAdd
 const addItemToCart = (state: { items: Item[] }, action: { payload: Item }) => {
-  console.log({state, action})
+  console.log({ state, action });
   const existingCartItemIndex = state.items.findIndex(
     (item: Item) => item.id === action.payload.id
   );

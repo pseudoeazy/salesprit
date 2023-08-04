@@ -25,7 +25,6 @@ const style = {
 
 export default function ForgetPassword() {
   const [isSubmit, setIsSubmit] = useState(false);
-  const [hasError, setHasError] = useState(false);
 
   const {
     register,

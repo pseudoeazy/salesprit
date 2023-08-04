@@ -27,7 +27,6 @@ const style = {
 
 export default function Login() {
   const [isSubmit, setIsSubmit] = useState(false);
-  const [hasError, setHasError] = useState(false);
 
   const {
     register,

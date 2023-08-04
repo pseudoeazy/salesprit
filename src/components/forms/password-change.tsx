@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { useToast } from "@chakra-ui/react";
 import Button from "components/button";
-import { ToastContainer, toast } from "react-toastify";
 
 export default function PasswordChange() {
   const [isResend, setIsResend] = useState(false);
   const router = useRouter();
+  const toast = useToast();
 
   const {
     register,
@@ -20,16 +21,11 @@ export default function PasswordChange() {
     setIsResend(true);
     setTimeout(() => {
       setIsResend(false);
-
-      toast.success("Verification Link Sent Successfully", {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
+      toast({
+        title: "Verification Link Sent Successfully",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
       });
     }, 2000);
   };
@@ -62,18 +58,6 @@ export default function PasswordChange() {
           Resend Link
         </Button>
       </div>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 }

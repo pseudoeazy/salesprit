@@ -1,8 +1,10 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Layout from "containers/layout";
-import NavBar from "containers/navbar";
 import MainContent from "containers/main-content";
-import RightSidebar from "containers/right-sidebar";
+
+const NavBar = dynamic(() => import("containers/navbar"));
+const RightSidebar = dynamic(() => import("containers/right-sidebar"));
 
 export default function Home() {
   return (

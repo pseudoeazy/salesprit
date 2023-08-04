@@ -2,17 +2,6 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { ClickAction } from "./mobile";
 
-//@ts-ignore
-const Path = (props) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
-    strokeLinecap="round"
-    {...props}
-  />
-);
-
 const styles = {
   button: `
   z-50
@@ -24,6 +13,18 @@ const styles = {
   rounded-full
   flex items-center justify-center`,
 };
+
+//@ts-ignore
+const Path = (props) => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="3"
+    stroke="hsl(0, 0%, 18%)"
+    strokeLinecap="round"
+    {...props}
+  />
+);
+
 
 interface Props {
   toggle: () => void;

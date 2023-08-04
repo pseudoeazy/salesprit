@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import Counter from "./counter";
 import CURRENCY from "constants/currency";
-import { useCart } from "contexts/cart/cart-provider";
 import Item from "types/item";
+import { useCart } from "contexts/cart/cart-provider";
+import Counter from "./counter";
 
 type CartItemProps = {
   item: Item;
@@ -23,11 +23,6 @@ const styles = {
   CartItemTotalWrapper: "flex items-center justify-between",
 
   CartItemTotalPrice: "font-semibold text-16px text-gray-900 flex-shrink-0",
-};
-
-const itemVariant = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
 };
 
 const CartItem: React.FC<CartItemProps> = ({ item }) => {

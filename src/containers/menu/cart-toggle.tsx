@@ -12,6 +12,7 @@ const styles = {
   height-[50px]
   rounded-full
   flex items-center justify-center`,
+  span:`w-5 h-5  p-1 flex items-center justify-center bg-gray-900 text-white absolute rounded-full`
 };
 
 interface Props {
@@ -33,7 +34,7 @@ const CartToggle = ({ toggle, setClickType }: Props) => {
     >
       <CartIcon width="20px" height="20px" />
       <span
-        className="w-5 h-5  p-1 flex items-center justify-center bg-gray-900 text-white absolute rounded-full"
+        className={styles.span}
         style={{ fontSize: "10px", top: "-10px", right: "-10px" }}
       >
         {itemsCount}
