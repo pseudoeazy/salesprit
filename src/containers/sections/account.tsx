@@ -11,10 +11,10 @@ interface Props {
 }
 
 const styles = {
-  container: `flex flex-col md:flex-row py-[8rem] `,
-  imageSection: `flex-1 hidden md:flex justify-center items-center`,
+  container: `flex flex-col lg:flex-row py-[8rem] `,
+  imageSection: `flex-1 hidden lg:flex justify-center items-center`,
   formSection: `flex-1 flex justify-center items-center `,
-  innerFormSection: `md:border-dashed md:border-l-4 border-stroke px-[48px] md:px-[96px]`,
+  innerFormSection: `lg:border-dashed lg:border-l-4 border-stroke px-[48px] lg:px-[96px]`,
 };
 
 export default function Account({ children, title, subtitle }: Props) {
@@ -38,7 +38,7 @@ export default function Account({ children, title, subtitle }: Props) {
         <div className="absolute left-0 top-0  ">
           <VectorOne />
         </div>
-        <div className="absolute  md:left-[19rem] top-0 right-0 ">
+        <div className="absolute  lg:left-[19rem] top-0 right-0 ">
           <VectorTwo />
         </div>
       </div>

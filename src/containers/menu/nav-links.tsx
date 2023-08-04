@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import scroll from "assets/styles/scroll.module.css";
 
 const styles = {
-  ul: `relative z-10  flex flex-col space-y-14 px-16 md:px-1 my-32 md:mt-7 cart-scrollbar overflow-y-auto`,
+  ul: `relative z-10  flex flex-col space-y-14 px-16 lg:px-1 my-32 lg:mt-7 cart-scrollbar overflow-y-auto`,
   li: `capitalize text-sm text-center font-semibold p-4 rounded-lg hover:bg-mygray hover:text-primary cursor-pointer`,
 };
 const variants = {

@@ -11,7 +11,7 @@ import NotFound from "assets/icons/not-found";
 import Notification from "assets/icons/notification";
 
 const styles = {
-  header: `flex items-center justify-center pt-28  md:pt-10 pb-12 px-4 md:px-8`,
+  header: `flex items-center justify-center pt-28  lg:pt-10 pb-12 px-4 lg:px-8`,
   cards: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8`,
 };
 
@@ -32,7 +32,7 @@ const MainContent = () => {
   }, [searchTerm]);
 
   return (
-    <div className="w-full md:w-[28.503rem] flex-1  min-h-screen ">
+    <div className="w-full lg:w-[28.503rem] flex-1  min-h-screen ">
       <Mobile />
       <header className={styles.header}>
         <div>
@@ -42,7 +42,7 @@ const MainContent = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.5 }}
-          className="hidden md:inline-block"
+          className="hidden lg:inline-block"
           role="button"
         >
           <Notification />

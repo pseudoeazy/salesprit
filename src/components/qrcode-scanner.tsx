@@ -26,7 +26,7 @@ export default function QrCodeScanner({ onClose }) {
       experimentalFeatures: {
         useBarCodeDetectorIfSupported: true,
       },
-      rememberLastUsedCamera: false,
+      rememberLastUsedCamera: true,
       supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA],
       aspectRatio: 1.7777778,
     });
