@@ -1,9 +1,25 @@
-import { useRef } from "react";
+import { useRef, useReducer } from "react";
 import { motion, useCycle } from "framer-motion";
-import { useDimensions } from "./use-dimensions";
-import { MenuToggle } from "./MenuToggle";
-import NavLinks from "./nav-links";
+import { Slide } from "@chakra-ui/react";
+import useDimensions  from "hooks/use-dimensions";
+import Cart from "components/cart";
 import Logo from "components/logo";
+import MenuToggle from "./menu-toggle";
+import NavLinks from "./nav-links";
+import CartToggle from "./cart-toggle";
+
+export interface ClickAction {
+  type: string;
+}
+
+interface ClickState {
+  isMenuClick: boolean;
+  isCartClick: boolean;
+}
+const initialClickState: ClickState = {
+  isMenuClick: false,
+  isCartClick: false,
+};
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -24,16 +40,26 @@ const sidebar = {
     },
   },
 };
+const clickReducer = (state: ClickState, action: ClickAction): ClickState => {
+  if (action.type === "isMenuClick") {
+    return { isCartClick: false, isMenuClick: true };
+  }
+  if (action.type === "isCartClick") {
+    return { isMenuClick: false, isCartClick: true };
+  }
+  return state;
+};
 
 const Mobile = () => {
+  const [clickType, setClickType] = useReducer(clickReducer, initialClickState);
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
-  //w-screen h-screen justify-center items-center overflow-hidden bg-blue-500
+
   return (
     <div
-      className={`md:hidden relative border border-red-500 ${
-        isOpen ? " bg-info w-screen h-screen" : ""
+      className={`fixed md:hidden z-50 ${
+        isOpen ? " bg-info w-screen h-screen" : "w-full bg-white"
       }`}
     >
       <Logo />
@@ -42,14 +68,20 @@ const Mobile = () => {
         animate={isOpen ? "open" : "closed"}
         custom={height}
         ref={containerRef}
-        className="absolute left-0 top-0  bottom-0 w-full border border-red-500"
+        className="absolute left-0 top-0  bottom-0 w-full"
       >
         <motion.div className="background" variants={sidebar} />
 
-        <div className={`${isOpen ? "block" : "hidden"}`}>
-        <NavLinks />
-        </div>
-        <MenuToggle toggle={() => toggleOpen()} />
+        <Slide
+          direction={`${clickType.isMenuClick ? "left" : "right"}`}
+          in={isOpen}
+          style={{ zIndex: 10 }}
+        >
+          {clickType.isMenuClick && <NavLinks />}
+          {clickType.isCartClick && <Cart />}
+        </Slide>
+        <MenuToggle toggle={toggleOpen} setClickType={setClickType} />
+        <CartToggle toggle={toggleOpen} setClickType={setClickType} />
       </motion.nav>
     </div>
   );

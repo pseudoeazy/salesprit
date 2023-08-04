@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import navs from "constants/navs";
 import { motion } from "framer-motion";
+import scroll from "assets/styles/scroll.module.css";
 
 const variants = {
   open: {
@@ -34,7 +35,7 @@ export default function NavLinks() {
   //md:mt-0
   return (
     <motion.ul
-      className={`relative z-10 px-16 flex flex-col space-y-14 my-32  `}
+      className={`relative z-10 px-16 flex flex-col space-y-14 my-32 cart-scrollbar overflow-y-auto ${scroll.scrollbar}`}
       variants={variants}
     >
       {navs.map((nav, index) => (

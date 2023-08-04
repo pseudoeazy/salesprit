@@ -10,7 +10,7 @@ type CartItemProps = {
 
 const styles = {
   CartItemBase:
-    " relative w-full h-auto flex justify-around items-center bg-white p-4 border border-mygray rounded-xl  ",
+    "relative w-full h-auto flex justify-around items-center  bg-white p-4 border border-mygray rounded-xl  ",
   CartItemImage:
     "flex w-20 h-20 rounded overflow-hidden bg-mygray flex-shrink-0",
 

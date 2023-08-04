@@ -7,6 +7,7 @@ export const tuple = <T extends string[]>(...args: T) => args;
 
 const CounterSizes = tuple("big", "normal");
 type CounterSizes = (typeof CounterSizes)[number];
+
 const CounterBase =
   "w-24 group flex items-center justify-between flex-shrink-0 rounded overflow-hidden  shadow-floatingUp";
 

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "./use-dimensions";
-import { MenuToggle } from "./MenuToggle";
+import { MenuToggle } from "./menu-toggle";
 import NavLinks from "./nav-links";
 import scroll from "assets/styles/scroll.module.css";
 
