@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
     Router.events.off("routeChangeError", () => NProgress.done());
   }, []);
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <SearchProvider>
         <CartProvider>
           <div className={inter.className}>

@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import SearchIcon from "assets/icons/search-icon";
 import Barcode from "assets/icons/barcode";
 import { useSearch } from "contexts/search/use-search";
+import { useDisclosure } from "@chakra-ui/react";
+import SlideEx from "components/modals/slider";
 
 type SearchProps = { className?: string; id?: string };
 
@@ -18,6 +20,7 @@ const styles = {
 };
 
 const Search: React.FC<SearchProps> = ({ className, ...props }) => {
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const router = useRouter();
   const { searchTerm, setSearchTerm } = useSearch();
 
@@ -38,27 +41,31 @@ const Search: React.FC<SearchProps> = ({ className, ...props }) => {
 
   const classNames = styles.searchBase + " " + className;
   return (
-    <form noValidate role="search" className={classNames} onSubmit={onSubmit}>
-      <span className={styles.searchIconWrapper}>
-        <SearchIcon color="#999999" />
-      </span>
-      <label htmlFor={props.id || "search-normal"} className="sr-only">
-        {props.id || "search-normal"}
-      </label>
-      <input
-        type="search"
-        placeholder="Search Here"
-        className={styles.searchInput}
-        value={searchTerm}
-        onChange={onSearch}
-        id={props.id || "search-normal"}
-        autoComplete="off"
-        {...props}
-      />
-      <span className={styles.barcodeIconWrapper}>
-        <Barcode />
-      </span>
-    </form>
+    <>
+      <SlideEx isOpen={isOpen} onClose={onToggle} />
+
+      <form noValidate role="search" className={classNames} onSubmit={onSubmit}>
+        <span className={styles.searchIconWrapper}>
+          <SearchIcon color="#999999" />
+        </span>
+        <label htmlFor={props.id || "search-normal"} className="sr-only">
+          {props.id || "search-normal"}
+        </label>
+        <input
+          type="search"
+          placeholder="Search Here"
+          className={styles.searchInput}
+          value={searchTerm}
+          onChange={onSearch}
+          id={props.id || "search-normal"}
+          autoComplete="off"
+          {...props}
+        />
+        <span className={styles.barcodeIconWrapper} onClick={() => onToggle()}>
+          <Barcode />
+        </span>
+      </form>
+    </>
   );
 };
 

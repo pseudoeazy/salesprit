@@ -3,7 +3,7 @@ import Layout from "containers/layout";
 import Account from "containers/sections/account";
 import PasswordChange from "components/forms/password-change";
 
-export default function Forgot() {
+export default function PasswordChanged() {
   return (
     <Layout>
       <Head>

@@ -4,7 +4,7 @@ import Account from "containers/sections/account";
 import PasswordReset from "components/forms/password-reset";
 import SocialLogin from "components/social-login";
 
-export default function Forgot() {
+export default function ResetPassword() {
   return (
     <Layout>
       <Head>

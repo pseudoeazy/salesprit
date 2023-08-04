@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import { Html5QrcodeScanner, Html5QrcodeScanType } from "html5-qrcode";
 import BackArrow from "assets/icons/back-arrow";
 
+
 const containerStyle = {
   backgroundImage: `url(/images/qrcode.jpg)`,
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
 };
 
-export default function QrCodeScanner() {
+export default function QrCodeScanner({onClose}) {
+
   const [decodedResults, setDecodedResults] = useState([]);
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export default function QrCodeScanner() {
       className="relative h-screen w-screen flex items-center justify-center "
       style={containerStyle}
     >
-      <span role="button" className="absolute left-20 top-20">
+      <span role="button" className="absolute left-20 top-20" onClick={()=> onClose()}>
         <BackArrow />
       </span>
       <div className="relative w-[28rem] h-[28rem] border border-mygray border-t-2 border-t-secondary  ">

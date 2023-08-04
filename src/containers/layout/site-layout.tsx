@@ -8,6 +8,7 @@ export default function SiteLayout({ children }: Props) {
   return (
     <div className="main-page-layout font-primary overflow-x-hidden ">
       {children}
+      
     </div>
   );
 }

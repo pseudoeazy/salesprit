@@ -4,7 +4,7 @@ import Account from "containers/sections/account";
 import ForgetPassword from "components/forms/forget-password";
 import SocialLogin from "components/social-login";
 
-export default function Forgot() {
+export default function ForgotPassword() {
   return (
     <Layout>
       <Head>
