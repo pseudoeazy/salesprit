@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS starts from here */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -50,12 +49,10 @@ input,
 button {
   -webkit-appearance: none;
 }
+
+/* Custom CSS starts from here */
 .nav:hover {
   background-color: #003048;
-}
-
-.Toastify__toast--success {
-  background-color: #12991f;
 }
 
 /* ScrollBar Height Calc */
@@ -64,79 +61,12 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 
-/**/
-
-/* body {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-    180deg,
-    #0055ff 0%,
-    rgb(0, 153, 255) 100%
-  ) !important;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-} */
-
-/* .background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  background: yellowgreen;
-} */
-
-/* button {
-  outline: none;
-  border: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  cursor: pointer;
-  position: absolute;
-  top: 18px;
-  left: 15px;
-  width: 50px;
-  height: 50px;
+#cashierProfile img {
   border-radius: 50%;
-  background: transparent;
-} */
-
-.ul,
-.li {
-  margin: 0;
-  padding: 0;
+  display: inline-block;
 }
 
-.ul {
-  padding: 25px;
-  position: absolute;
-  top: 100px;
-  width: 230px;
-}
-
-.li {
-  list-style: none;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.icon-placeholder {
+/* .icon-placeholder {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -149,7 +79,7 @@ button {
   width: 200px;
   height: 20px;
   flex: 1;
-}
+} */
 
 .refresh {
   padding: 10px;

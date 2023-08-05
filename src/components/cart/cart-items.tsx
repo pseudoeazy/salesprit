@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import CURRENCY from "constants/currency";
 import Item from "types/item";
 import { useCart } from "contexts/cart/cart-provider";
@@ -31,8 +32,12 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
   return (
     <motion.div className={styles.CartItemBase}>
       <div className={styles.CartItemImage}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/images/${item.product.imgUrl}`} alt={item.product.name} />
+        <Image
+          src={`/images/${item.product.imgUrl}`}
+          alt={item.product.name}
+          width={80}
+          height={80}
+        />
       </div>
 
       <div className={styles.CartItemContent}>
