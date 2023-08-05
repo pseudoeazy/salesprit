@@ -9,6 +9,7 @@ import Trash from "assets/icons/trash";
 import Minus from "assets/icons/minus-icon";
 import Plus from "assets/icons/plus-icon";
 import Item from "types/item";
+import Button from "./button";
 
 const styles = {
   container: ` rounded-lg shadow-md `,
@@ -53,29 +54,26 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         <div className={styles.animatedCounterBase}>
           {item ? (
             <>
-              <IconButton
-                onClick={() => removeItem(item)}
-                className={styles.button}
-              >
+              <Button onClick={() => removeItem(item)} className="p-2"
+              aria-label="decrease item quantity">
                 {item?.quantity > 1 ? <Minus /> : <Trash />}
-              </IconButton>
+              </Button>
               <span className={styles.animatedCounterValue}>
                 {item?.quantity ? item?.quantity : "0"}
               </span>
-              <IconButton
-                onClick={() => addItem(item)}
-                className={styles.button}
-              >
+              <Button onClick={() => addItem(item)} className="p-2" 
+              aria-label="increase item quantity">
                 <Plus />
-              </IconButton>
+              </Button>
             </>
           ) : (
-            <IconButton
+            <Button
               onClick={() => addItem({ product, id: product.id })}
-              className={styles.button}
+              className="py-2 px-4"
+              aria-label="add to cart"
             >
               <Plus />
-            </IconButton>
+            </Button>
           )}
         </div>
       </div>

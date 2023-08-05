@@ -38,7 +38,7 @@ const RightSidebar = () => {
                 transition={{ duration: 0.5 }}
                 className="inline-block"
               >
-                <a href="tel:123456789">
+                <a href="tel:123456789" aria-label="Call+123456789">
                   <Call />
                 </a>
               </motion.span>
