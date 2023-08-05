@@ -40,6 +40,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           width={192}
           height={192}
           style={{ width: "100%", height: "auto" }}
+          priority
         />
       </div>
 
@@ -54,15 +55,21 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         <div className={styles.animatedCounterBase}>
           {item ? (
             <>
-              <Button onClick={() => removeItem(item)} className="p-2"
-              aria-label="decrease item quantity">
+              <Button
+                onClick={() => removeItem(item)}
+                className="p-2"
+                aria-label="decrease item quantity"
+              >
                 {item?.quantity > 1 ? <Minus /> : <Trash />}
               </Button>
               <span className={styles.animatedCounterValue}>
                 {item?.quantity ? item?.quantity : "0"}
               </span>
-              <Button onClick={() => addItem(item)} className="p-2" 
-              aria-label="increase item quantity">
+              <Button
+                onClick={() => addItem(item)}
+                className="p-2"
+                aria-label="increase item quantity"
+              >
                 <Plus />
               </Button>
             </>
