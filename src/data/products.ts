@@ -11,7 +11,7 @@ const products: Product[] = [
   },
   {
     id: 2,
-    name: "Healthy Pancakes",
+    name: "Pancakes",
     price: 20,
     imgUrl: "pancakes.png",
     description: "Healthy Pancakes",
