@@ -12,7 +12,7 @@ const styles = {
   height-[50px]
   rounded-full
   flex items-center justify-center`,
-  span:`w-5 h-5  p-1 flex items-center justify-center bg-gray-900 text-white absolute rounded-full`
+  span: `w-5 h-5  p-1 flex items-center justify-center bg-gray-900 text-white absolute rounded-full`,
 };
 
 interface Props {
@@ -31,6 +31,7 @@ const CartToggle = ({ toggle, setClickType }: Props) => {
       className={styles.button}
       onClick={handleClick}
       aria-label="cart-button"
+      aria-expanded="true"
     >
       <CartIcon width="20px" height="20px" />
       <span

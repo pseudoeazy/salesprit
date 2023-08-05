@@ -25,7 +25,6 @@ const Path = (props) => (
   />
 );
 
-
 interface Props {
   toggle: () => void;
   setClickType: (type: ClickAction) => void;
@@ -38,7 +37,12 @@ const MenuToggle = ({ toggle, setClickType }: Props) => {
   };
 
   return (
-    <button onClick={handleClick} className={styles.button}>
+    <button
+      onClick={handleClick}
+      className={styles.button}
+      aria-expanded="true"
+      aria-label="Open the menu"
+    >
       <svg width="23" height="23" viewBox="0 0 23 23">
         <Path
           variants={{

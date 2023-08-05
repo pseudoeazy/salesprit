@@ -1,7 +1,7 @@
 import { useRef, useReducer } from "react";
 import { motion, useCycle } from "framer-motion";
 import { Slide } from "@chakra-ui/react";
-import useDimensions  from "hooks/use-dimensions";
+import useDimensions from "hooks/use-dimensions";
 import Cart from "components/cart";
 import Logo from "components/logo";
 import MenuToggle from "./menu-toggle";
@@ -61,6 +61,8 @@ const Mobile = () => {
       className={`fixed xl:hidden z-50 ${
         isOpen ? " bg-info w-screen h-screen" : "w-full bg-white"
       }`}
+      role="navigation"
+      aria-label="Main menu"
     >
       <Logo />
       <motion.nav
