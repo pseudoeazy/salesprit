@@ -3,11 +3,19 @@ import type { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { Outfit } from "next/font/google";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { SearchProvider } from "contexts/search/use-search";
 import { CartProvider } from "contexts/cart/cart-provider";
 import "assets/styles/globals.css";
 import "assets/styles/nprogress.css"; // Import NProgress stylesheet here
+
+// Extend the theme to include custom colors, fonts, etc
+const colors = {
+  primary: "#003048",
+  secondary: "#F67F20",
+};
+
+export const theme = extendTheme({ colors });
 
 export const inter = Outfit({
   subsets: ["latin"],
@@ -28,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
     Router.events.off("routeChangeError", () => NProgress.done());
   }, []);
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <SearchProvider>
         <CartProvider>
           <div className={inter.className}>
