@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Mobile from "containers/menu/mobile";
 import Search from "components/search";
@@ -6,7 +6,6 @@ import ProductCard from "components/product-card";
 import { useSearch } from "contexts/search/use-search";
 import useSearchableProducts from "hooks/use-searchable-products";
 import { Product } from "types/product";
-import products from "data/products";
 import NotFound from "assets/icons/not-found";
 import Notification from "assets/icons/notification";
 
@@ -15,7 +14,10 @@ const styles = {
   cards: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8`,
 };
 
-const MainContent = () => {
+interface Props {
+  products: Product[];
+}
+const MainContent = ({ products }: Props) => {
   const [productsData, setProductsData] = useState<Product[]>(products);
   const { searchTerm } = useSearch();
   const filteredProducts = useSearchableProducts(productsData, searchTerm);

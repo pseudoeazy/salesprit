@@ -7,5 +7,17 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Product[]>
 ) {
-  res.status(200).json(products);
+  try {
+    const query = req.query?.q as string;
+    if (query) {
+      const regex = new RegExp(query, "i");
+      const filteredProducts = products.filter(
+        (item) => regex.test(item.name) || regex.test(item.description)
+      );
+      return res.status(200).json(filteredProducts);
+    }
+    res.status(200).json(products);
+  } catch (e) {
+    res.status(200).json(products);
+  }
 }
