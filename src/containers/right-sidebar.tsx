@@ -5,7 +5,7 @@ import Cart from "components/cart";
 import CashierProfile from "../../public/images/cashier.png";
 
 const styles = {
-  container: `w-[26.88rem] hidden lg:block`,
+  container: `xl:w-[26.88rem] shrink-0 hidden xl:block`,
   semiContainer: `fixed w-[26.88rem] min-h-screen  border-x border-x-mygray`,
   top: `relative  z-10 flex justify-between items-center `,
   itemBox: `flex justify-between items-center border-b border-b-mygray`,

@@ -13,7 +13,7 @@ const containerStyle = {
 };
 export default function OrderConfirmation() {
   const router = useRouter();
- 
+
   return (
     <Layout>
       <Head>
@@ -24,12 +24,12 @@ export default function OrderConfirmation() {
         <title>Salesprit | Order Confirmation</title>
       </Head>
 
-      <div className="relative flex mx-auto w-[85.375rem] overflow-x-hidden">
+      <div className="relative flex mx-auto w-full  xl:w-[85.375rem] overflow-x-hidden">
         <NavBar />
 
-        <div className="flex-1  min-h-screen pt-15">
-          <div className="relative   mx-auto " style={containerStyle}>
-            <div className="absolute left-[8rem] top-[14rem] w-[18.6rem] h-[14.6rem] capitalize text-center">
+        <div className="w-full flex-1 shrink min-h-screen pt-15">
+          <div className="relative  mx-auto " style={containerStyle}>
+            <div className="absolute left-[5rem]  lg:left-[8rem] top-[14rem] w-[18.6rem] h-[14.6rem] capitalize text-center ">
               <div className="flex flex-col items-center space-y-1 text-center ">
                 <span className="font-bold">you order is confirmed</span>
                 <span>Thanks for your order </span>
@@ -42,7 +42,7 @@ export default function OrderConfirmation() {
               </div>
             </div>
           </div>
-          <div className="text-center py-20">
+          <div className="text-center py-20 px-4">
             <h2>Your Order Placed Successfully !</h2>
             <p className="text-secondary ">
               Please wait for 5-10 Minute for your order

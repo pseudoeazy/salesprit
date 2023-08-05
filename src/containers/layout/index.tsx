@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ children, hasSidebar }) => (
     >
       <div className="relative flex flex-col w-full h-full min-h-screen flex-grow">
         {hasSidebar ? (
-          <div className="relative flex mx-auto md:w-[85.375rem] overflow-x-hidden">
+          <div className="relative w-full flex mx-auto max-w-[85.375rem] overflow-x-hidden">
             {children}
           </div>
         ) : (

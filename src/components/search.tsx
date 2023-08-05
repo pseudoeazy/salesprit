@@ -8,10 +8,10 @@ import { useDisclosure } from "@chakra-ui/react";
 const QrSlider = dynamic(() => import("components/modals/qr-slider"));
 
 type SearchProps = { className?: string; id?: string };
-
+//xl:w-[34.375rem]
 const styles = {
   searchBase:
-    "flex items-center justify-center w-full lg:w-[34.375rem] lg:max-w-screen-md rounded-[3.525rem] relative overflow-hidden border border-mygray",
+    "flex items-center justify-center w-full  xl:max-w-screen-md rounded-[3.525rem] relative overflow-hidden border border-mygray ",
   searchIconWrapper:
     "absolute top-0 left-6 flex items-center justify-center h-full w-50px",
   barcodeIconWrapper:

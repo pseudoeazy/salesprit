@@ -2,12 +2,9 @@ import EmptyCartSVG from "assets/icons/empty-svg";
 
 export default function NoItem() {
   return (
-    <>
-      <div className="w-full flex justify-center flex-shrink-0 relative px-30px py-20px mb-30px border-b border-gray-200">
-        <button
-          className="w-auto h-10 flex items-center justify-center text-gray-500 absolute top-half -mt-20px left-30px transition duration-300 focus:outline-none hover:text-gray-900"
-          aria-label="close"
-        ></button>
+    <div className="px-8">
+      <div className="w-full flex justify-center flex-shrink-0 relative px-8 py-20px mb-30px border-b border-gray-200">
+       
         <h2 className="font-semibold text-21px m-0">Empty Cart</h2>
       </div>
 
@@ -20,6 +17,6 @@ export default function NoItem() {
           <EmptyCartSVG />
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -58,7 +58,7 @@ const Mobile = () => {
 
   return (
     <div
-      className={`fixed lg:hidden z-50 ${
+      className={`fixed xl:hidden z-50 ${
         isOpen ? " bg-info w-screen h-screen" : "w-full bg-white"
       }`}
     >
