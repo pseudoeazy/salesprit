@@ -26,7 +26,7 @@ const withHover = (WrappedComponent: React.FC<Props>) => {
       <span
         ref={ref}
         className={`${
-          pageUrl === path ? "bg-mygray text-primary" : "text-mygray"
+          pageUrl === path ? "bg-mygray text-primary" : "text-primary"
         } ${styles.container} `}
       >
         <Link
