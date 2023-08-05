@@ -13,7 +13,6 @@ interface Props {
 }
 
 export default function Home({ products }: Props) {
-  console.log({ products });
   return (
     <Layout hasSidebar>
       <Head>
