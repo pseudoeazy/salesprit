@@ -5,9 +5,11 @@ import { Product } from "types/product";
 import CURRENCY from "constants/currency";
 import { useCart } from "contexts/cart/cart-provider";
 
+//dark:bg-gray-800 dark:border-gray-700
+//font-bold tracking-tight text-gray-900 dark:text-white
 const styles = {
-  container: `bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700`,
-  productName: `mb-2 font-bold tracking-tight text-gray-900 dark:text-white`,
+  container: ` rounded-lg shadow-md `,
+  productName: `mb-2 text-xl font-semibold text-black `,
 };
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
@@ -42,7 +44,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           {product?.name}
         </div>
 
-        <span className="text-secondary font-bold">
+        <span className="text-secondary text-lg font-bold">
           {CURRENCY}
           {product?.price?.toFixed(2)}
         </span>

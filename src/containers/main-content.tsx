@@ -46,6 +46,7 @@ const MainContent = ({ products }: Props) => {
           transition={{ duration: 0.5 }}
           className="hidden md:inline-block"
           role="button"
+          aria-label="notification"
         >
           <Notification />
         </motion.div>
