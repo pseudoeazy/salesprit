@@ -1,12 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Salesprit POS Next.js Ecommerce Template
 
-## Getting Started
+Salesprit is a cutting-edge Next.js Ecommerce Template that revolutionizes the online shopping experience. This template will serve as a versatile foundation for building robust and feature-rich ecommerce websites with seamless user experiences and top-notch performance. 
 
-First, run the development server:
+
+## Technology
+
+- React.js
+- Next.js 13
+- TailwindCSS 3
+- ChakraUI
+- TypeScript
+
+## Requirements
+
+ - Node Version > 14
+
+## Credits
+Salesprit is designed by  [Codeash](https://ui8.net/codeash-infotech). Figma design is publicly available for download [Here](https://ui8.net/codeash-infotech/products/point-of-sale-ui-figma-ui-kit---salesprit)
+
+## Get Started
+Run the following commands on the terminal
 
 ```bash
+npm install
 npm run dev
 # or
+yarn install
 yarn dev
 ```
 
