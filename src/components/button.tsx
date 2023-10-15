@@ -6,7 +6,6 @@ import {
   ButtonVariant,
   ButtonSize,
 } from "./utils/theme";
-import { Spinner } from "@chakra-ui/react";
 import Loader from "components/loader";
 
 interface Props {
@@ -67,9 +66,7 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
       {...props}
     >
       {!loading && children}
-      {loading && (
-        <Loader />
-      )}
+      {loading && <Loader />}
     </button>
   );
 };

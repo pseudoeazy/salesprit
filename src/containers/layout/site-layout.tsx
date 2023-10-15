@@ -1,3 +1,4 @@
+import Modal from "components/modal";
 import React from "react";
 
 interface Props {
@@ -8,7 +9,7 @@ export default function SiteLayout({ children }: Props) {
   return (
     <div className="main-page-layout font-primary overflow-x-hidden ">
       {children}
-      
+      <Modal />
     </div>
   );
 }
